@@ -26,16 +26,35 @@
       </nav>
       <div class="flex items-center gap-10">
         <input oninput="showFilteredProducts(this.value)" class="border-1 border-[#d1d1ad] rounded-sm py-2 px-3" placeholder="Search for product" type="text">
-        <i class="fa-solid fa-cart-shopping"></i>
+        <div class="relative cursor-pointer">
+          <i class="fa-solid fa-cart-shopping text-2xl"></i>
+          <span class="bg-red-500 absolute -bottom-2 -right-3 rounded-full px-2 py-1 text-xs text-[#f8f2ed]">2</span>
+        </div>
       </div>
     </div>
   </header>
 
+  //Fazendo layout para o modal
+  <div class="bg-slate-500 w-200 h-150 flex">
+    <div class="flex items-center w-100 h-full p-10 bg-slate-200">
+      <img src="/images/shoes/black-shoes3.png" alt="">
+    </div>
+    <div class="flex ml-10 mt-10 text-2xl">
+      <h1>Shoes top dimas</h1>
+    </div>
+  </div>
+
   <main>
-    <div id="card" class="flex max-w-[1440px] mx-auto flex-wrap gap-7">
+    <div id="card" class="flex max-w-[1440px] mx-auto flex-wrap gap-7 px-10">
       
     </div>
   </main>
+
+  
+  <dialog id="modal" ></dialog>
+
+
+ 
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="script.js"></script>
