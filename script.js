@@ -57,11 +57,36 @@ const showFilteredProducts = (inputFilter) => {
 function openModal(image, name, price, stock) {
   modal.showModal();
   modal.innerHTML = `
-    <div>
-      <img class="w-40" src="${image}" alt="product">
-      <p>${name}<p>
-      <p>${price}<p>
-      <p>${stock}<p>
-    <div>
+    <div class="w-200 h-120 flex">
+      <div class="flex items-center justify-center w-100 h-full p-10 bg-slate-200">
+        <img src="${image}" alt="">
+      </div>
+      <div class="flex flex-col ml-10 mt-10 gap-1">
+        <h1 class="text-3xl font-bold">${name}</h1>
+        <span class="px-3 p-1 rounded-2xl bg-slate-200 w-fit">Total in Stock - ${stock}</span>
+        <span class="text-xs font-medium mt-10">PRICE</span>
+        <span class="text-xl"> $ ${price}</span>
+
+          <div class="mt-10">
+            <h1 class="text-xs font-medium mb-2">QUANTITY</h1>
+            <div class="flex border-1 border-slate-400 rounded h-11 justify-between w-41 items-center mb-12 px-4">
+              <span class="cursor-pointer" onClick={handleCounter}>
+                <img src="/assets/minus.svg" alt="" />
+              </span>
+              <span>1</span>
+              <span class="cursor-pointer" onClick={handleCounter2}>
+                <img src="/assets/add.svg" alt="" />
+              </span>
+            </div>
+
+            <button 
+              class="bg-gray-400 rounded-md text-white w-71 cursor-pointer px-6 py-3"
+              onClick={handleCart}
+            >
+              Add to cart
+            </button>
+          </div>
+      </div>
+    </div>
   `;
 }
