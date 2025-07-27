@@ -34,7 +34,7 @@
      },
      { 
     	"id": 5, 
-    	"name": "Basic Essential Navy Blue", 
+    	"name": "Basic Navy Blue", 
     	"image": "/images/shirts/blue-tshirt.png",
     	"stock": 49,
     	"category": "T-shirt",
@@ -179,7 +179,7 @@
      { 
 	"id": 23, 
 	"name": "Classic Blue Charm", 
-	"image": "/images/handbag/blue-handbag.png",
+	"image": "/images/handbag/blue-handbag2.png",
 	"stock": 4,
 	"category": "Handbag",
 	"price": 158.4 
@@ -187,7 +187,7 @@
      { 
 	"id": 24, 
 	"name": "Midnight Ocean Style", 
-	"image": "/images/handbag/blue-handbag.png",
+	"image": "/images/handbag/blue-handbag3.png",
 	"stock": 7,
 	"category": "Handbag",
 	"price": 165.9 
@@ -203,7 +203,7 @@
      { 
 	"id": 26, 
 	"name": "Ruby Flame Luxe", 
-	"image": "/images/handbag/red-handbag.png",
+	"image": "/images/handbag/red-handbag2.png",
 	"stock": 5,
 	"category": "Handbag",
 	"price": 174.2 
@@ -211,7 +211,7 @@
      { 
 	"id": 27, 
 	"name": "Scarlet Moon Elegance", 
-	"image": "/images/handbag/red-handbag.png",
+	"image": "/images/handbag/red-handbag3.png",
 	"stock": 2,
 	"category": "Handbag",
 	"price": 160.7 
