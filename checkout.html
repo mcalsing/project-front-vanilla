@@ -8,12 +8,10 @@
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
   />
-  <title>E-commerce</title>
+  <title>Document</title>
 </head>
 <body class="bg-[#f6f6ef]">
-  
-  <p class="bg-lime-900 text-[#f8f2ed] flex justify-center py-2">Get 25% OFF on your first order. Order Now!</p>
-  
+
   <header>
     <div class="flex py-5 px-5 items-center justify-between max-w-[1440px] mx-auto flex-col md:flex-row">
       <nav class="flex items-center">
@@ -27,7 +25,6 @@
         </ul>
       </nav>
       <div class="flex items-center gap-10 mt-5">
-        <input oninput="showFilteredProducts(this.value)" class="border-1 border-[#d1d1ad] rounded-sm py-2 px-3" placeholder="Search for product" type="text">
         <a href="checkout.html" class="relative cursor-pointer">
           <i class="fa-solid fa-cart-shopping text-2xl"></i>
           <span class="bg-red-500 absolute -bottom-2 -right-3 rounded-full px-2 py-1 text-xs text-[#f8f2ed]">2</span>
@@ -36,20 +33,28 @@
     </div>
   </header>
 
-  <!-- Fazendo layout para o modal -->
+  <main class="px-5">
+    <h1>Your cart</h1>
+    <span class="border-b-1 border-slate-600 w-40"></span>
 
-  <main>
-    <div id="card" class="flex max-w-[1440px] mx-auto px-10 justify-around xl:grid xl:grid-cols-4 mt-10 flex-wrap gap-10">
+    <div id="orders">
+      <div class="flex items-center gap-10">
+        <div class="flex w-20 h-20 bg-slate-200 items-center">
+          <img src="/images/hat/hat2.png" alt="">
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="text-xl">Camisa da nike</span>
+          <span class="text-sm">Quantity: 4</span>
+        </div>
+        <span class="text-2xl ml-10">$ 40.9</span>
+        <div class="w-8 h-8 bg-slate-200 rounded-sm cursor-pointer">
+          <img class="px-2 py-2" src="/assets/close.svg" alt="" />
+        </div>
+      </div>
     </div>
   </main>
 
-  
-  <dialog id="modal" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-slate-800" ></dialog>
 
 
- 
-
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>

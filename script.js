@@ -3,8 +3,14 @@ const API_URL = 'http://localhost:3000/products';
 const card = document.getElementById('card');
 const modal = document.getElementById('modal');
 
+// Produtos recebidos do backend
 var products;
+
+//Contador da quantidade de produtos na modal
 var amount = 4;
+
+// Número do pedido para salvar no session storage
+var orders = [];
 
 //Função para pegar os dados da API
 const getProduct = async () => {
@@ -23,15 +29,15 @@ const getProduct = async () => {
           <div class="h-60 flex justify-center items-center bg-[#ededde] rounded-t-md">
             <img class="w-40 h-fit" src="${product.image}" alt="">
           </div>
-          <div class="flex flex-col text-[#727240] py-4 px-1 gap-2">
+          <div class="flex flex-col text-[#727240] py-4 px-2 gap-2">
             <span class="font-medium text-xl">${product.name}</span>
-            <span>R$ ${product.price}</span>
+            <span>$ ${product.price}</span>
           </div>
         </div>
       `
     })
   } catch (error) {
-    card.innerHTML = 'Nenhum produto encontrado';
+    card.innerHTML = `<span class="text-xl">Nenhum produto encontrado<span>`;
   }
 }
 window.onload = getProduct;
@@ -40,25 +46,30 @@ window.onload = getProduct;
 //Função que quando for digitado algo na barra de pesquisa, filtra o producto que corresponde
 const showFilteredProducts = (inputFilter) => {
   card.innerHTML = '';
+  try {
+    const filteredProducts = products.filter(p => p.name.toLowerCase().includes(inputFilter.toLowerCase()))
 
-  const filteredProducts = products.filter(p => p.name.toLowerCase().includes(inputFilter.toLowerCase()))
+    if (filteredProducts.length == 0) card.innerHTML = `<span class="text-xl">Nenhum produto corresponde a pesquisa<span>`
 
-  filteredProducts.forEach(product => {
-    card.innerHTML += `
-      <div 
-        onclick="openModal('${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
-        class="w-60 h-85 border-1 border-[#d1d1ad] rounded-md cursor-pointer"
-      >
-        <div class="h-60 flex justify-center items-center bg-[#ededde] rounded-t-md">
-          <img class="w-40 h-fit" src="${product.image}" alt="">
+    filteredProducts.forEach(product => {
+      card.innerHTML += `
+        <div 
+          onclick="openModal('${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
+          class="w-60 h-85 border-1 border-[#d1d1ad] rounded-md cursor-pointer"
+        >
+          <div class="h-60 flex justify-center items-center bg-[#ededde] rounded-t-md">
+            <img class="w-40 h-fit" src="${product.image}" alt="">
+          </div>
+          <div class="flex flex-col text-[#727240] py-4 px-2 gap-2">
+            <span class="font-medium text-xl">${product.name}</span>
+            <span>$ ${product.price}</span>
+          </div>
         </div>
-        <div class="flex flex-col text-[#727240] py-4 px-1 gap-2">
-          <span class="font-medium text-xl">${product.name}</span>
-          <span>R$ ${product.price}</span>
-        </div>
-      </div>
-    `
-  })
+      `
+    })
+  } catch (error) {
+     card.innerHTML = `<span class="text-xl">Nenhum produto encontrado<span>`;
+  }
 }
 
 const openModal = (image, name, price, stock) => {
@@ -91,7 +102,7 @@ const openModal = (image, name, price, stock) => {
 
             <button 
               class="bg-gray-400 rounded-md w-full text-white cursor-pointer px-6 py-3"
-              onclick="addProductToCart('${name}', ${price})"
+              onclick="addProductToCart('${image}', '${name}', ${price})"
             >
               Add to cart
             </button>
@@ -125,10 +136,26 @@ const decrementAmount = () => {
   }
 }
 
-const addProductToCart = (name, price) => {
+const addProductToCart = (image, name, price) => {
   const amountInModel = document.getElementById("amount-qtd").textContent;
+  console.log(image)
   console.log(name)
   console.log(price)
   console.log(amountInModel)
+  //orderNumber += 1;
+  const order = {
+    image: image,
+    name: name,
+    price: price,
+    quantity: amountInModel
+    
+  }
+  orders.push(order)
+
+  console.log(orders)
+  
+  //const ObjAsString = JSON.stringify(order);
+  //sessionStorage.setItem(orderNumber, ObjAsString);
   closeModal();
 }
+
