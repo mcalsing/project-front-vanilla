@@ -8,27 +8,31 @@ var amount = 4;
 
 //Função para pegar os dados da API
 const getProduct = async () => {
-  const response = await axios.get(API_URL);
-  products = response.data;
-
-  card.innerHTML = '';
-
-  products.forEach(product => {
-    card.innerHTML += `
-      <div 
-        onclick="openModal('${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
-        class="w-60 h-85 border-1 border-[#d1d1ad] rounded-md cursor-pointer"
-      >
-        <div class="h-60 flex justify-center items-center bg-[#ededde] rounded-t-md">
-          <img class="w-40 h-fit" src="${product.image}" alt="">
+  try {
+    const response = await axios.get(API_URL);
+    products = response.data;
+  
+    card.innerHTML = '';
+  
+    products.forEach(product => {
+      card.innerHTML += `
+        <div 
+          onclick="openModal('${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
+          class="w-60 h-85 border-1 border-[#d1d1ad] rounded-md cursor-pointer"
+        >
+          <div class="h-60 flex justify-center items-center bg-[#ededde] rounded-t-md">
+            <img class="w-40 h-fit" src="${product.image}" alt="">
+          </div>
+          <div class="flex flex-col text-[#727240] py-4 px-1 gap-2">
+            <span class="font-medium text-xl">${product.name}</span>
+            <span>R$ ${product.price}</span>
+          </div>
         </div>
-        <div class="flex flex-col text-[#727240] py-4 px-1 gap-2">
-          <span class="font-medium text-xl">${product.name}</span>
-          <span>R$ ${product.price}</span>
-        </div>
-      </div>
-    `
-  })
+      `
+    })
+  } catch (error) {
+    card.innerHTML = 'Nenhum produto encontrado';
+  }
 }
 window.onload = getProduct;
 
@@ -76,18 +80,18 @@ const openModal = (image, name, price, stock) => {
           <div class="mt-10">
             <h1 class="text-xs font-medium mb-2">QUANTITY</h1>
             <div class="flex border-1 border-slate-400 rounded h-11 justify-between w-41 items-center mb-12 px-4">
-              <span class="cursor-pointer" onclick="decrementAmount()">
+              <span class="cursor-pointer" onclick="decrementAmount(${stock})">
                 <img src="/assets/minus.svg" alt="" />
               </span>
               <span id="amount-qtd">${amount}</span>
-              <span class="cursor-pointer" onclick="increaseAmount()">
+              <span class="cursor-pointer" onclick="increaseAmount(${stock})">
                 <img src="/assets/add.svg" alt="" />
               </span>
             </div>
 
             <button 
               class="bg-gray-400 rounded-md w-full text-white cursor-pointer px-6 py-3"
-              onclick="addProductToCart('${name}', ${price}, ${amount})"
+              onclick="addProductToCart('${name}', ${price})"
             >
               Add to cart
             </button>
@@ -108,7 +112,8 @@ const updateAmountDisplay = () => {
   }
 }
 
-const increaseAmount = () => {
+const increaseAmount = (stock) => {
+  if (amount < stock)
   amount += 1;
   updateAmountDisplay();
 }
