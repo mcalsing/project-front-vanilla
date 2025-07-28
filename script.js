@@ -2,6 +2,8 @@ const API_URL = 'http://localhost:3000/products';
 
 const card = document.getElementById('card');
 const modal = document.getElementById('modal');
+const cartIcon = document.getElementById('cart-icon');
+cartIcon.innerHTML = 0;
 
 // Produtos recebidos do backend
 var products;
@@ -143,19 +145,59 @@ const addProductToCart = (image, name, price) => {
   console.log(price)
   console.log(amountInModel)
   //orderNumber += 1;
+  orders = JSON.parse(sessionStorage.getItem("cart")) || [];
+
+  console.log("orders logo depois de recuperar do localStorage", orders)
+
   const order = {
     image: image,
     name: name,
     price: price,
     quantity: amountInModel
-    
   }
   orders.push(order)
 
-  console.log(orders)
+  console.log("pos push", orders)
   
-  //const ObjAsString = JSON.stringify(order);
-  //sessionStorage.setItem(orderNumber, ObjAsString);
+  sessionStorage.setItem("cart", JSON.stringify(orders));
+
+  cartIcon.innerHTML = orders.length
   closeModal();
 }
+
+// ---------------- checkout page ----------------
+
+const currentURL = window.location.pathname
+
+const checkoutProducts = document.getElementById('orders');
+
+
+const showCheckoutProducts = () => {
+  
+  orders = JSON.parse(sessionStorage.getItem("cart")) || [];
+  console.log(orders.length)
+  cartIcon.innerHTML = orders.length
+
+  if (orders.length == 0) console.log("array vazio")
+
+  orders.forEach(item => {
+    checkoutProducts.innerHTML += `
+      <div class="flex items-center gap-10">
+        <div class="flex w-17 h-17 bg-slate-200 items-center">
+          <img src="${item.image}" alt="">
+        </div>
+        <div class="flex flex-col gap-1">
+          <span class="text-xl">${item.name}</span>
+          <span class="text-sm">quantity: ${item.quantity}</span>
+        </div>
+        <span class="text-2xl ml-10">$ ${item.price}</span>
+        <div class="w-8 h-8 bg-slate-200 rounded-sm cursor-pointer">
+          <img class="px-2 py-2" src="/assets/close.svg" alt="" />
+        </div>
+      </div>
+    `
+  })
+}
+
+if (currentURL == "/checkout.html") showCheckoutProducts();
 
