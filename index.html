@@ -19,11 +19,12 @@
       <nav class="flex items-center">
         <a class="mr-10" href="/"><img src="/assets/logo.svg" alt="Logo"></a>
         <ul class="flex gap-5 text-[#727240]">
-          <li><a href="#">T-shirts</a></li>
-          <li><a href="#">Shoes</a></li>
-          <li><a href="#">Perfumes</a></li>
-          <li><a href="#">Handbags</a></li>
-          <li><a href="#">Hats</a></li>
+          <li onclick="showCategory('T-shirt')" class="cursor-pointer">T-shirts</li>
+          <li onclick="showCategory('Shoes')" class="cursor-pointer">Shoes</li>
+          <li onclick="showCategory('Perfume')" class="cursor-pointer">Perfumes</li>
+          <li onclick="showCategory('Handbag')" class="cursor-pointer">Handbags</li>
+          <li onclick="showCategory('Hat')" class="cursor-pointer">Hats</li>
+          <li onclick="showCategory('')" class="cursor-pointer">All</li>
         </ul>
       </nav>
       <div class="flex items-center gap-10">

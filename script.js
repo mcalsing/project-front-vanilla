@@ -76,6 +76,32 @@ const showFilteredProducts = (inputFilter) => {
   }
 }
 
+const showCategory = (category) => {
+  console.log(category)
+  console.log("teste")
+
+  card.innerHTML = '';
+
+  filteredCategory = products.filter( item => item.category == category  )
+
+  filteredCategory.forEach(product => {
+    card.innerHTML += `
+      <div 
+        onclick="openModal(${product.id}, '${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
+        class="w-60 h-85 border-1 border-[#d1d1ad] rounded-md cursor-pointer"
+      >
+        <div class="h-60 flex justify-center items-center bg-[#ededde] rounded-t-md">
+          <img class="w-40 h-fit" src="${product.image}" alt="">
+        </div>
+        <div class="flex flex-col text-[#727240] py-4 px-2 gap-2">
+          <span class="font-medium text-xl">${product.name}</span>
+          <span>$ ${product.price}</span>
+        </div>
+      </div>
+    `
+  })
+}
+
 const openModal = (id, image, name, price, stock) => {
   amount = 1;
   modal.showModal();
@@ -182,8 +208,8 @@ const renderCart = () => {
     totalPriceProducts += item.price * item.quantity;
     checkoutProducts.innerHTML += `
       <div class="flex items-center gap-10">
-        <div class="flex h-20 bg-[#ededde] items-center">
-          <img class="w-15 h-fit flex" src="${item.image}" alt="">
+        <div class="flex h-25 bg-[#ededde] items-center">
+          <img class="w-20 h-fit flex" src="${item.image}" alt="">
         </div>
         <div class="flex flex-col gap-1">
           <span class="text-xl">${item.name}</span>
@@ -210,8 +236,8 @@ const showCheckoutProducts = () => {
 
 const deleteItemFromCart = (id) => {
   orders = JSON.parse(sessionStorage.getItem("cart")) || [];
-  const novoArray = orders.filter(item => item.id !== id);
-  sessionStorage.setItem('cart', JSON.stringify(novoArray));
+  const newArray = orders.filter(item => item.id !== id);
+  sessionStorage.setItem('cart', JSON.stringify(newArray));
   renderCart();
 }
 
