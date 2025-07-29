@@ -41,7 +41,7 @@ const getProduct = async () => {
       `
     })
   } catch (error) {
-    card.innerHTML = `<span class="text-xl">Nenhum produto encontrado<span>`;
+    card.innerHTML = `<span class="text-xl text-[#52522e]">No products found<span>`;
   }
 }
 window.onload = getProduct;
@@ -72,7 +72,7 @@ const showFilteredProducts = (inputFilter) => {
       `
     })
   } catch (error) {
-     card.innerHTML = `<span class="text-xl">Nenhum produto encontrado<span>`;
+     card.innerHTML = `<span class="text-xl text-[#52522e]">No products found<span>`;
   }
 }
 
@@ -104,7 +104,11 @@ const showCategory = (category) => {
 
 const openModal = (id, image, name, price, stock) => {
   amount = 1;
+
+  if (stock == 0) amount = 0;
+
   modal.showModal();
+
   modal.innerHTML = `
     <div class="w-200 h-120 flex rounded-md">
       <div class="flex items-center justify-center w-100 h-full p-10 bg-[#ededde] w-1/2">
@@ -130,7 +134,8 @@ const openModal = (id, image, name, price, stock) => {
               </span>
             </div>
 
-            <button 
+            <button
+              id="modal-btn"
               class="bg-lime-900 rounded-md w-full text-white cursor-pointer px-6 py-3"
               onclick="addProductToCart(${id}, '${image}', '${name}', ${price})"
             >
@@ -140,6 +145,13 @@ const openModal = (id, image, name, price, stock) => {
       </div>
     </div>
   `
+  modalBtn = document.getElementById('modal-btn');
+
+  if (stock == 0) {
+    modalBtn.className = "bg-slate-300 rounded-md w-full text-white cursor-pointer px-6 py-3"
+    modalBtn.disabled = true;
+  }
+
 }
 
 const closeModal = () => {
@@ -203,7 +215,9 @@ const renderCart = () => {
 
   let totalPriceProducts = 0;
   checkoutProducts.innerHTML = '';
-
+  
+  if (orders.length == 0) checkoutProducts.innerHTML = `<span class="text-xl">Your cart is empty</span>`
+  
   orders.forEach(item => {
     totalPriceProducts += item.price * item.quantity;
     checkoutProducts.innerHTML += `

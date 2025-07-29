@@ -4,7 +4,7 @@
     	"id": 1, 
     	"name": "Ultranet Black Stamped", 
     	"image": "/images/shirts/black-tshirt-stamped.png",
-    	"stock": 30,
+    	"stock": 0,
     	"category": "T-shirt",
     	"price": 36.9 
      },
@@ -68,7 +68,7 @@
     	"id": 9, 
     	"name": "Sport Nike", 
     	"image": "/images/shirts/white-nike2.png",
-    	"stock": 5,
+    	"stock": 8,
     	"category": "T-shirt",
     	"price": 34.9 
      },
@@ -132,7 +132,7 @@
 			"id": 17, 
 			"name": "Mystic Blue Essence", 
 			"image": "/images/perfumes/perfume-circle2.png",
-			"stock": 5,
+			"stock": 17,
 			"category": "Perfume",
 			"price": 179.9 
      },
@@ -140,7 +140,7 @@
 			"id": 18, 
 			"name": "Golden Blossom Touch", 
 			"image": "/images/perfumes/perfume-circle.png",
-			"stock": 2,
+			"stock": 8,
 			"category": "Perfume",
 			"price": 139.5 
      },
@@ -148,7 +148,7 @@
 			"id": 19, 
 			"name": "Black Rose Whisper", 
 			"image": "/images/perfumes/perfume-black3.png",
-			"stock": 8,
+			"stock": 23,
 			"category": "Perfume",
 			"price": 164.7 
      },
@@ -196,7 +196,7 @@
 			"id": 25, 
 			"name": "Crimson Grace Tote", 
 			"image": "/images/handbag/red-handbag.png",
-			"stock": 3,
+			"stock": 36,
 			"category": "Handbag",
 			"price": 149.9 
      },
@@ -204,7 +204,7 @@
 			"id": 26, 
 			"name": "Ruby Flame Luxe", 
 			"image": "/images/handbag/red-handbag2.png",
-			"stock": 5,
+			"stock": 15,
 			"category": "Handbag",
 			"price": 174.2 
      },
@@ -212,7 +212,7 @@
 			"id": 27, 
 			"name": "Scarlet Moon Elegance", 
 			"image": "/images/handbag/red-handbag3.png",
-			"stock": 2,
+			"stock": 12,
 			"category": "Handbag",
 			"price": 160.7 
      },
