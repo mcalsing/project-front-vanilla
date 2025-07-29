@@ -12,7 +12,7 @@ cartIcon.innerHTML = orders.length;
 var products;
 
 //Contador da quantidade de produtos na modal
-var amount = 4;
+var amount = 0;
 
 // Número do pedido para salvar no session storage
 
@@ -146,10 +146,8 @@ const addProductToCart = (image, name, price) => {
   console.log(name)
   console.log(price)
   console.log(amountInModel)
-  //orderNumber += 1;
+ 
   orders = JSON.parse(sessionStorage.getItem("cart")) || [];
-
-  console.log("orders logo depois de recuperar do localStorage", orders)
 
   const order = {
     image: image,
@@ -158,9 +156,7 @@ const addProductToCart = (image, name, price) => {
     quantity: amountInModel
   }
   orders.push(order)
-
-  console.log("pos push", orders)
-  
+ 
   sessionStorage.setItem("cart", JSON.stringify(orders));
 
   cartIcon.innerHTML = orders.length
@@ -175,12 +171,26 @@ const checkoutProducts = document.getElementById('orders');
 
 
 const showCheckoutProducts = () => {
+  var total = document.getElementById('total')
+
+  var totalPriceProducts = 0;
+  subtotal = document.getElementById('subtotal');
+
+  //Puxa os itens do session storage
   orders = JSON.parse(sessionStorage.getItem("cart")) || [];
   cartIcon.innerHTML = orders.length
 
-  if (orders.length == 0) console.log("array vazio")
+  // Taxa de 5 dolares por item diferente no carrinho
+  tax = document.getElementById('tax');
+  tax.textContent = (orders.length * 5).toFixed(1);
 
+ 
   orders.forEach(item => {
+    //sub total do preço dos produtos no carrinho
+    totalPriceProducts += item.price*item.quantity;
+    subtotal.textContent = totalPriceProducts.toFixed(1);
+
+    //Listegem do produtos
     checkoutProducts.innerHTML += `
       <div class="flex items-center gap-10">
         <div class="flex h-20 bg-slate-200 items-center">
@@ -197,6 +207,9 @@ const showCheckoutProducts = () => {
       </div>
     `
   })
+  
+  // Soma taxa e preço dos produtos
+  total.innerHTML = ((Number(subtotal.textContent) + Number(tax.textContent)));
 }
 
 if (currentURL == "/checkout.html") showCheckoutProducts();
