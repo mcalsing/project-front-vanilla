@@ -27,7 +27,7 @@ const getProduct = async () => {
     products.forEach(product => {
       card.innerHTML += `
         <div 
-          onclick="openModal('${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
+          onclick="openModal(${product.id}, '${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
           class="w-60 h-85 border-1 border-[#d1d1ad] rounded-md cursor-pointer"
         >
           <div class="h-60 flex justify-center items-center bg-[#ededde] rounded-t-md">
@@ -58,7 +58,7 @@ const showFilteredProducts = (inputFilter) => {
     filteredProducts.forEach(product => {
       card.innerHTML += `
         <div 
-          onclick="openModal('${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
+          onclick="openModal(${product.id}, '${product.image}', '${product.name}', ${product.price}, ${product.stock})" 
           class="w-60 h-85 border-1 border-[#d1d1ad] rounded-md cursor-pointer"
         >
           <div class="h-60 flex justify-center items-center bg-[#ededde] rounded-t-md">
@@ -76,7 +76,7 @@ const showFilteredProducts = (inputFilter) => {
   }
 }
 
-const openModal = (image, name, price, stock) => {
+const openModal = (id, image, name, price, stock) => {
   amount = 1;
   modal.showModal();
   modal.innerHTML = `
@@ -106,7 +106,7 @@ const openModal = (image, name, price, stock) => {
 
             <button 
               class="bg-lime-900 rounded-md w-full text-white cursor-pointer px-6 py-3"
-              onclick="addProductToCart('${image}', '${name}', ${price})"
+              onclick="addProductToCart(${id}, '${image}', '${name}', ${price})"
             >
               Add to cart
             </button>
@@ -140,16 +140,13 @@ const decrementAmount = () => {
   }
 }
 
-const addProductToCart = (image, name, price) => {
+const addProductToCart = (id, image, name, price) => {
   const amountInModel = document.getElementById("amount-qtd").textContent;
-  console.log(image)
-  console.log(name)
-  console.log(price)
-  console.log(amountInModel)
  
   orders = JSON.parse(sessionStorage.getItem("cart")) || [];
 
   const order = {
+    id: id,
     image: image,
     name: name,
     price: price,
@@ -167,29 +164,20 @@ const addProductToCart = (image, name, price) => {
 
 const currentURL = window.location.pathname
 
-const checkoutProducts = document.getElementById('orders');
+function renderCart() {
+  const subtotalElem = document.getElementById('subtotal');
+  const taxElem = document.getElementById('tax');
+  const totalElem = document.getElementById('total');
+  const checkoutProducts = document.getElementById('orders');
 
-const showCheckoutProducts = () => {
-  var total = document.getElementById('total')
-
-  var totalPriceProducts = 0;
-  subtotal = document.getElementById('subtotal');
-
-  //Puxa os itens do session storage
   orders = JSON.parse(sessionStorage.getItem("cart")) || [];
-  cartIcon.innerHTML = orders.length
+  cartIcon.innerHTML = orders.length;
 
-  // Taxa de 5 dolares por item diferente no carrinho
-  tax = document.getElementById('tax');
-  tax.textContent = (orders.length * 5).toFixed(1);
+  let totalPriceProducts = 0;
+  checkoutProducts.innerHTML = '';
 
- 
   orders.forEach(item => {
-    //sub total do preço dos produtos no carrinho
-    totalPriceProducts += item.price*item.quantity;
-    subtotal.textContent = totalPriceProducts.toFixed(1);
-
-    //Listegem do produtos
+    totalPriceProducts += item.price * item.quantity;
     checkoutProducts.innerHTML += `
       <div class="flex items-center gap-10">
         <div class="flex h-20 bg-[#ededde] items-center">
@@ -200,16 +188,29 @@ const showCheckoutProducts = () => {
           <span class="text-sm">quantity: ${item.quantity}</span>
         </div>
         <span class="text-xl ml-10 ml-auto">$ ${item.price}</span>
-        <div class="w-8 h-8 bg-[#ededde] rounded-sm cursor-pointer">
-          <img class="px-2 py-2" src="/assets/close.svg" alt="" />
+        <div onclick="deleteItemFromCart(${item.id})" class="w-8 h-8 bg-[#ededde] rounded-sm cursor-pointer">
+          <img  class="px-2 py-2" src="/assets/close.svg" alt="" />
         </div>
       </div>
     `
-  })
-  
-  // Soma taxa e preço dos produtos
-  total.innerHTML = ((Number(subtotal.textContent) + Number(tax.textContent)));
+  });
+
+  if (subtotalElem) subtotalElem.textContent = totalPriceProducts.toFixed(1);
+  if (taxElem) taxElem.textContent = (orders.length * 5).toFixed(1);
+  if (totalElem && subtotalElem && taxElem) {
+    totalElem.innerHTML = (Number(subtotalElem.textContent) + Number(taxElem.textContent)).toFixed(1);
+  }
+}
+
+const showCheckoutProducts = () => {
+  renderCart();
+}
+
+const deleteItemFromCart = (id) => {
+  orders = JSON.parse(sessionStorage.getItem("cart")) || [];
+  const novoArray = orders.filter(item => item.id !== id);
+  sessionStorage.setItem('cart', JSON.stringify(novoArray));
+  renderCart();
 }
 
 if (currentURL == "/checkout.html") showCheckoutProducts();
-
