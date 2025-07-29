@@ -183,15 +183,22 @@ const addProductToCart = (id, image, name, price) => {
  
   orders = JSON.parse(sessionStorage.getItem("cart")) || [];
 
-  const order = {
-    id: id,
-    image: image,
-    name: name,
-    price: price,
-    quantity: amountInModel
+  //o objeto existingProduct é referencia do array orders
+  const existingProduct = orders.find(item => item.id === id);
+
+  if (existingProduct) {
+   existingProduct.quantity += Number(amountInModel);
+  } else {
+    const order = {
+      id: id,
+      image: image,
+      name: name,
+      price: price,
+      quantity: Number(amountInModel)
+    }
+    orders.push(order)
   }
-  orders.push(order)
- 
+
   sessionStorage.setItem("cart", JSON.stringify(orders));
 
   cartIcon.innerHTML = orders.length
