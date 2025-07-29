@@ -14,7 +14,7 @@
 
   <p class="bg-lime-900 text-[#f8f2ed] flex justify-center py-2">Get 25% OFF on your first order. Order Now!</p>
 
-<header>
+  <header>
     <div class="flex py-7 px-5 items-center justify-between max-w-[1440px] mx-auto flex-col md:flex-row">
       <nav class="flex items-center">
         <a class="mr-10" href="/"><img src="/assets/logo.svg" alt="Logo"></a>
@@ -28,42 +28,18 @@
       </nav>
       <div class="flex items-center gap-10">
         <a href="checkout.html" class="relative cursor-pointer">
-          <i class="fa-solid fa-cart-shopping text-2xl" ></i>
+          <i class="fa-solid fa-cart-shopping text-2xl"></i>
           <span class="bg-red-500 absolute -bottom-2 -right-3 rounded-full px-2 py-1 text-xs text-[#f8f2ed]" id="cart-icon"></span>
         </a>
       </div>
     </div>
   </header>
 
-  <main class="px-5 max-w-[1440px] justify-between mx-auto mt-20 flex flex-wrap text-[#52522e]">
-    <div id="orders" class="flex flex-col gap-5 w-fit"></div>
+  <main class="flex flex-col max-w-[1440px] items-center mt-20 text-[#52522e] gap-5">
 
-    <section class="w-95 h-fit px-6 pt-8 border-1 border-[#d1d1ad] rounded-[4px]">
-      <h1 class="">Order Summary</h1>
-      <div class="flex justify-between mt-10 mb-3">
-        <span>Subtotal</span>
-        <span id="subtotal"></span>
-      </div>
-      <div class="flex justify-between mb-3">
-        <span>Shipping:</span>
-        <span>Free</span>
-      </div>
-      <div class="flex justify-between mb-6">
-        <span>Tax:</span>
-        <span id="tax"></span>
-      </div>
-      <p class="border-b-1 border-[#d1d1ad] mb-6"></p>
-      <div class="flex justify-between mb-8">
-        <span>Total</span>
-        <span id="total"></span>
-      </div>
-      <button
-        class="cursor-pointer font-medium bg-lime-900 text-white w-full mb-8 py-3 px-6 rounded-[4px]"
-        onclick="thanks()"
-        >
-        Checkout
-      </button>
-    </section>
+    <img class="w-30" src="/assets/box.svg" alt="" srcset="">
+    <h1 class="text-2xl font-bold">Thank you for shopping!</h1>
+    <span class="w-100 text-center">Your order has been successfully placed and is now being processed.</span>
   </main>
 
   <script src="script.js"></script>

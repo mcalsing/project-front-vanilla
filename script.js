@@ -160,11 +160,13 @@ const addProductToCart = (id, image, name, price) => {
   closeModal();
 }
 
+
 // ---------------- checkout page ----------------
+
 
 const currentURL = window.location.pathname
 
-function renderCart() {
+const renderCart = () => {
   const subtotalElem = document.getElementById('subtotal');
   const taxElem = document.getElementById('tax');
   const totalElem = document.getElementById('total');
@@ -185,7 +187,7 @@ function renderCart() {
         </div>
         <div class="flex flex-col gap-1">
           <span class="text-xl">${item.name}</span>
-          <span class="text-sm">quantity: ${item.quantity}</span>
+          <span class="text-sm text-[#939353]">quantity: ${item.quantity}</span>
         </div>
         <span class="text-xl ml-10 ml-auto">$ ${item.price}</span>
         <div onclick="deleteItemFromCart(${item.id})" class="w-8 h-8 bg-[#ededde] rounded-sm cursor-pointer">
@@ -214,3 +216,12 @@ const deleteItemFromCart = (id) => {
 }
 
 if (currentURL == "/checkout.html") showCheckoutProducts();
+
+
+// ----------------------- Thanks page --------------------------
+
+
+const thanks = () => {
+  window.location.href = "thanks.html";
+  sessionStorage.removeItem('cart');
+}
