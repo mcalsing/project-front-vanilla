@@ -103,9 +103,18 @@ const showCategory = (category) => {
 }
 
 const openModal = (id, image, name, price, stock) => {
-  amount = 1;
+  orders = JSON.parse(sessionStorage.getItem("cart")) || [];
 
-  if (stock == 0) amount = 0;
+  const existingProduct = orders.find(item => item.id === id);
+
+  const alreadyInCart = existingProduct ? existingProduct.quantity : 0;
+
+  // Define o máximo que pode ser adicionado (estoque - já no carrinho)
+  let maxToAdd = stock - alreadyInCart;
+  if (maxToAdd < 0) maxToAdd = 0;
+
+  // Inicializa o amount para o máximo possível ou 1 (se houver estoque)
+  amount = maxToAdd > 0 ? 1 : 0;
 
   modal.showModal();
 
@@ -125,11 +134,11 @@ const openModal = (id, image, name, price, stock) => {
           <div class="mt-10">
             <h1 class="text-xs font-medium mb-2">QUANTITY</h1>
             <div class="flex border-1 border-[#d1d1ad] rounded h-11 justify-between w-41 items-center mb-12 px-4">
-              <span class="cursor-pointer" onclick="decrementAmount(${stock})">
+              <span class="cursor-pointer" onclick="decrementAmount()">
                 <img src="/assets/minus.svg" alt="" />
               </span>
               <span id="amount-qtd">${amount}</span>
-              <span class="cursor-pointer" onclick="increaseAmount(${stock})">
+              <span class="cursor-pointer" onclick="increaseAmount(${maxToAdd})">
                 <img src="/assets/add.svg" alt="" />
               </span>
             </div>
@@ -147,7 +156,7 @@ const openModal = (id, image, name, price, stock) => {
   `
   modalBtn = document.getElementById('modal-btn');
 
-  if (stock == 0) {
+  if (maxToAdd == 0) {
     modalBtn.className = "bg-slate-300 rounded-md w-full text-white cursor-pointer px-6 py-3"
     modalBtn.disabled = true;
   }
@@ -165,10 +174,11 @@ const updateAmountDisplay = () => {
   }
 }
 
-const increaseAmount = (stock) => {
-  if (amount < stock)
-  amount += 1;
-  updateAmountDisplay();
+const increaseAmount = (maxToAdd) => {
+  if (amount < maxToAdd) {
+    amount += 1;
+    updateAmountDisplay();
+  }
 }
 
 const decrementAmount = () => {
