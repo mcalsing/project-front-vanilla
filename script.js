@@ -232,6 +232,7 @@ const addProductToCart = (id, image, name, price) => {
 
 
 const currentURL = window.location.pathname
+const checkoutBtn = document.getElementById('checkout-btn')
 
 const renderCart = () => {
   const subtotalElem = document.getElementById('subtotal');
@@ -245,7 +246,11 @@ const renderCart = () => {
   let totalPriceProducts = 0;
   checkoutProducts.innerHTML = '';
   
-  if (orders.length == 0) checkoutProducts.innerHTML = `<span class="text-xl">Your cart is empty</span>`
+  if (orders.length == 0) {
+    checkoutProducts.innerHTML = `<span class="text-xl">Your cart is empty</span>`
+    checkoutBtn.className = "cursor-pointer bg-slate-300 text-white w-full mb-8 py-3 px-6 rounded-sm"
+    checkoutBtn.disabled = true;
+  } 
   
   orders.forEach(item => {
     totalPriceProducts += item.price * item.quantity;
