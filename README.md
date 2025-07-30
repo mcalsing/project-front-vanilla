@@ -4,7 +4,6 @@
 
 Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS, com integração a uma API REST para gerenciamento de produtos e estoque. O objetivo é simular um fluxo de compra online, permitindo ao usuário navegar por categorias, pesquisar produtos, adicionar itens ao carrinho e finalizar a compra.
 
----
 
 ## Funcionalidades
 
@@ -20,7 +19,6 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
 - Finalização da compra com atualização do estoque via API
 - Responsividade com Tailwind CSS
 
----
 
 ## Tecnologias Utilizadas
 
@@ -33,7 +31,6 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
 - **Backend:**  
   - [JSON Server](https://github.com/typicode/json-server)
 
----
 
 ## Como Executar o Projeto
 
@@ -54,7 +51,31 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
   ```
 
 4. **Abra o arquivo index.html no navegador.**
----
+
+# Imagens da aplicação
+
+- **Página inicial:**
+
+![alt text](images/project-prints/pagina-inicial.png)
+
+![alt text](images/project-prints/index-responsivo.png)
+
+
+- **Modal do produto:**
+
+![alt text](images/project-prints/modal.png)
+
+
+- **Página de checkout:**
+
+![alt text](images/project-prints/checkout.png)
+
+![alt text](images/project-prints/checkout-responsivo.png)
+
+
+- **Pós compra:**
+
+![alt text](images/project-prints/pos-compra.png)
 
 ### Observações
   - Certifique-se de que a API está rodando em http://localhost:3000/products.
