@@ -1,244 +1,244 @@
 {
   "products": [
-    { 
-    	"id": 1, 
-    	"name": "Ultranet Black Stamped", 
-    	"image": "/images/shirts/black-tshirt-stamped.png",
-    	"stock": 0,
-    	"category": "T-shirt",
-    	"price": 36.9 
-     },
-     { 
-    	"id": 2, 
-    	"name": "Simple Stamped", 
-    	"image": "/images/shirts/black-tshirt-stamped2.png",
-    	"stock": 5,
-    	"category": "T-shirt",
-    	"price": 20.9 
-     },
-     { 
-    	"id": 3, 
-    	"name": "Basic Essential Black", 
-    	"image": "/images/shirts/black-tshirt.png",
-    	"stock": 8,
-    	"category": "T-shirt",
-    	"price": 30.5 
-     },
-     { 
-    	"id": 4, 
-    	"name": "Basic Essential Blue", 
-    	"image": "/images/shirts/blue-monochromatic.png",
-    	"stock": 4,
-    	"category": "T-shirt",
-    	"price": 30.5 
-     },
-     { 
-    	"id": 5, 
-    	"name": "Basic Navy Blue", 
-    	"image": "/images/shirts/blue-tshirt.png",
-    	"stock": 49,
-    	"category": "T-shirt",
-    	"price": 30.5 
-     },
-     { 
-    	"id": 6, 
-    	"name": "Basic Brown", 
-    	"image": "/images/shirts/brown-tshirt.png",
-    	"stock": 26,
-    	"category": "T-shirt",
-    	"price": 25.9 
-     },
-         { 
-    	"id": 7, 
-    	"name": "Essential Brown", 
-    	"image": "/images/shirts/brown-tshirt2.png",
-    	"stock": 17,
-    	"category": "T-shirt",
-    	"price": 35.9 
-     },
-     { 
-    	"id": 8, 
-    	"name": "Basic Nike White", 
-    	"image": "/images/shirts/nike-tshirt.png",
-    	"stock": 11,
-    	"category": "T-shirt",
-    	"price": 45.9 
-     },
-     { 
-    	"id": 9, 
-    	"name": "Sport Nike", 
-    	"image": "/images/shirts/white-nike2.png",
-    	"stock": 8,
-    	"category": "T-shirt",
-    	"price": 34.9 
-     },
-     { 
-    	"id": 10, 
-    	"name": "Elegant Social", 
-    	"image": "/images/shoes/black-shoes.png",
-    	"stock": 2,
-    	"category": "Shoes",
-    	"price": 99.9 
-     },
-     { 
-    	"id": 11, 
-    	"name": "Shiny Essential", 
-    	"image": "/images/shoes/black-shoes2.png",
-    	"stock": 4,
-    	"category": "Shoes",
-    	"price": 120.9 
-     },
-     { 
-    	"id": 12, 
-    	"name": "Basic Social", 
-    	"image": "/images/shoes/black-shoes3.png",
-    	"stock": 9,
-    	"category": "Shoes",
-    	"price": 90.9 
-     },
-     { 
-    	"id": 13, 
-    	"name": "Shiny Elegant", 
-    	"image": "/images/shoes/brown-shoes.png",
-    	"stock": 1,
-    	"category": "Shoes",
-    	"price": 149.9 
-     },
-     { 
-    	"id": 14, 
-    	"name": "Social Brillant", 
-    	"image": "/images/shoes/brown-shoes2.png",
-    	"stock": 12,
-    	"category": "Shoes",
-    	"price": 100.9 
-     },
-     { 
-    	"id": 15, 
-    	"name": "Basic Essentials", 
-    	"image": "/images/shoes/brown-shoes3.png",
-    	"stock": 5,
-    	"category": "Shoes",
-    	"price": 99.9 
-     },
-     { 
-    	"id": 16, 
-    	"name": "Elegant Peach Colored", 
-    	"image": "/images/perfumes/perfume-circle3.png",
-    	"stock": 3,
-    	"category": "Perfume",
-    	"price": 99.9 
-     },
-     { 
-			"id": 17, 
-			"name": "Mystic Blue Essence", 
-			"image": "/images/perfumes/perfume-circle2.png",
-			"stock": 17,
-			"category": "Perfume",
-			"price": 179.9 
-     },
-     { 
-			"id": 18, 
-			"name": "Golden Blossom Touch", 
-			"image": "/images/perfumes/perfume-circle.png",
-			"stock": 8,
-			"category": "Perfume",
-			"price": 139.5 
-     },
-     { 
-			"id": 19, 
-			"name": "Black Rose Whisper", 
-			"image": "/images/perfumes/perfume-black3.png",
-			"stock": 23,
-			"category": "Perfume",
-			"price": 164.7 
-     },
-     { 
-			"id": 20, 
-			"name": "Ocean Breeze Spark", 
-			"image": "/images/perfumes/perfume-black2.png",
-			"stock": 4,
-			"category": "Perfume",
-			"price": 152.1
-     },
-     { 
-			"id": 21, 
-			"name": "Amber Night Desire", 
-			"image": "/images/perfumes/perfume-black.png",
-			"stock": 6,
-			"category": "Perfume",
-			"price": 171.3 
-     },
-     { 
-			"id": 22, 
-			"name": "Shiny Elegant Navy", 
-			"image": "/images/handbag/blue-handbag.png",
-			"stock": 6,
-			"category": "Handbag",
-			"price": 271.3 
-     },
-     { 
-			"id": 23, 
-			"name": "Classic Blue Charm", 
-			"image": "/images/handbag/blue-handbag2.png",
-			"stock": 4,
-			"category": "Handbag",
-			"price": 158.4 
-     },
-     { 
-			"id": 24, 
-			"name": "Midnight Ocean Style", 
-			"image": "/images/handbag/blue-handbag3.png",
-			"stock": 7,
-			"category": "Handbag",
-			"price": 165.9 
-     },
-     { 
-			"id": 25, 
-			"name": "Crimson Grace Tote", 
-			"image": "/images/handbag/red-handbag.png",
-			"stock": 36,
-			"category": "Handbag",
-			"price": 149.9 
-     },
-     { 
-			"id": 26, 
-			"name": "Ruby Flame Luxe", 
-			"image": "/images/handbag/red-handbag2.png",
-			"stock": 15,
-			"category": "Handbag",
-			"price": 174.2 
-     },
-     { 
-			"id": 27, 
-			"name": "Scarlet Moon Elegance", 
-			"image": "/images/handbag/red-handbag3.png",
-			"stock": 12,
-			"category": "Handbag",
-			"price": 160.7 
-     },
-     { 
-			"id": 28, 
-			"name": "Moon Elegance Hat", 
-			"image": "/images/hat/hat3.png",
-			"stock": 34,
-			"category": "Hat",
-			"price": 39.7 
-     },
-     { 
-			"id": 29, 
-			"name": "Summer Hat", 
-			"image": "/images/hat/hat2.png",
-			"stock": 99,
-			"category": "Hat",
-			"price": 19.9 
-     },
-     { 
-			"id": 30, 
-			"name": "Elegant Summer Hat", 
-			"image": "/images/hat/hat.png",
-			"stock": 54,
-			"category": "Hat",
-			"price": 25.8 
-     }
+    {
+      "id": "1",
+      "name": "Ultranet Black Stamped",
+      "image": "/images/shirts/black-tshirt-stamped.png",
+      "stock": 0,
+      "category": "T-shirt",
+      "price": 36.9
+    },
+    {
+      "id": "2",
+      "name": "Simple Stamped",
+      "image": "/images/shirts/black-tshirt-stamped2.png",
+      "stock": 4,
+      "category": "T-shirt",
+      "price": 20.9
+    },
+    {
+      "id": "3",
+      "name": "Basic Essential Black",
+      "image": "/images/shirts/black-tshirt.png",
+      "stock": 7,
+      "category": "T-shirt",
+      "price": 30.5
+    },
+    {
+      "id": "4",
+      "name": "Basic Essential Blue",
+      "image": "/images/shirts/blue-monochromatic.png",
+      "stock": 3,
+      "category": "T-shirt",
+      "price": 30.5
+    },
+    {
+      "id": "5",
+      "name": "Basic Navy Blue",
+      "image": "/images/shirts/blue-tshirt.png",
+      "stock": 47,
+      "category": "T-shirt",
+      "price": 30.5
+    },
+    {
+      "id": "6",
+      "name": "Basic Brown",
+      "image": "/images/shirts/brown-tshirt.png",
+      "stock": 25,
+      "category": "T-shirt",
+      "price": 25.9
+    },
+    {
+      "id": "7",
+      "name": "Essential Brown",
+      "image": "/images/shirts/brown-tshirt2.png",
+      "stock": 16,
+      "category": "T-shirt",
+      "price": 35.9
+    },
+    {
+      "id": "8",
+      "name": "Basic Nike White",
+      "image": "/images/shirts/nike-tshirt.png",
+      "stock": 11,
+      "category": "T-shirt",
+      "price": 45.9
+    },
+    {
+      "id": "9",
+      "name": "Sport Nike",
+      "image": "/images/shirts/white-nike2.png",
+      "stock": 8,
+      "category": "T-shirt",
+      "price": 34.9
+    },
+    {
+      "id": "10",
+      "name": "Elegant Social",
+      "image": "/images/shoes/black-shoes.png",
+      "stock": 2,
+      "category": "Shoes",
+      "price": 99.9
+    },
+    {
+      "id": "11",
+      "name": "Shiny Essential",
+      "image": "/images/shoes/black-shoes2.png",
+      "stock": 4,
+      "category": "Shoes",
+      "price": 120.9
+    },
+    {
+      "id": "12",
+      "name": "Basic Social",
+      "image": "/images/shoes/black-shoes3.png",
+      "stock": 9,
+      "category": "Shoes",
+      "price": 90.9
+    },
+    {
+      "id": "13",
+      "name": "Shiny Elegant",
+      "image": "/images/shoes/brown-shoes.png",
+      "stock": 1,
+      "category": "Shoes",
+      "price": 149.9
+    },
+    {
+      "id": "14",
+      "name": "Social Brillant",
+      "image": "/images/shoes/brown-shoes2.png",
+      "stock": 12,
+      "category": "Shoes",
+      "price": 100.9
+    },
+    {
+      "id": "15",
+      "name": "Basic Essentials",
+      "image": "/images/shoes/brown-shoes3.png",
+      "stock": 5,
+      "category": "Shoes",
+      "price": 99.9
+    },
+    {
+      "id": "16",
+      "name": "Elegant Peach Colored",
+      "image": "/images/perfumes/perfume-circle3.png",
+      "stock": 3,
+      "category": "Perfume",
+      "price": 99.9
+    },
+    {
+      "id": "17",
+      "name": "Mystic Blue Essence",
+      "image": "/images/perfumes/perfume-circle2.png",
+      "stock": 17,
+      "category": "Perfume",
+      "price": 179.9
+    },
+    {
+      "id": "18",
+      "name": "Golden Blossom Touch",
+      "image": "/images/perfumes/perfume-circle.png",
+      "stock": 8,
+      "category": "Perfume",
+      "price": 139.5
+    },
+    {
+      "id": "19",
+      "name": "Black Rose Whisper",
+      "image": "/images/perfumes/perfume-black3.png",
+      "stock": 23,
+      "category": "Perfume",
+      "price": 164.7
+    },
+    {
+      "id": "20",
+      "name": "Ocean Breeze Spark",
+      "image": "/images/perfumes/perfume-black2.png",
+      "stock": 4,
+      "category": "Perfume",
+      "price": 152.1
+    },
+    {
+      "id": "21",
+      "name": "Amber Night Desire",
+      "image": "/images/perfumes/perfume-black.png",
+      "stock": 6,
+      "category": "Perfume",
+      "price": 171.3
+    },
+    {
+      "id": "22",
+      "name": "Shiny Elegant Navy",
+      "image": "/images/handbag/blue-handbag.png",
+      "stock": 6,
+      "category": "Handbag",
+      "price": 271.3
+    },
+    {
+      "id": "23",
+      "name": "Classic Blue Charm",
+      "image": "/images/handbag/blue-handbag2.png",
+      "stock": 4,
+      "category": "Handbag",
+      "price": 158.4
+    },
+    {
+      "id": "24",
+      "name": "Midnight Ocean Style",
+      "image": "/images/handbag/blue-handbag3.png",
+      "stock": 7,
+      "category": "Handbag",
+      "price": 165.9
+    },
+    {
+      "id": "25",
+      "name": "Crimson Grace Tote",
+      "image": "/images/handbag/red-handbag.png",
+      "stock": 36,
+      "category": "Handbag",
+      "price": 149.9
+    },
+    {
+      "id": "26",
+      "name": "Ruby Flame Luxe",
+      "image": "/images/handbag/red-handbag2.png",
+      "stock": 15,
+      "category": "Handbag",
+      "price": 174.2
+    },
+    {
+      "id": "27",
+      "name": "Scarlet Moon Elegance",
+      "image": "/images/handbag/red-handbag3.png",
+      "stock": 12,
+      "category": "Handbag",
+      "price": 160.7
+    },
+    {
+      "id": "28",
+      "name": "Moon Elegance Hat",
+      "image": "/images/hat/hat3.png",
+      "stock": 34,
+      "category": "Hat",
+      "price": 39.7
+    },
+    {
+      "id": "29",
+      "name": "Summer Hat",
+      "image": "/images/hat/hat2.png",
+      "stock": 99,
+      "category": "Hat",
+      "price": 19.9
+    },
+    {
+      "id": "30",
+      "name": "Elegant Summer Hat",
+      "image": "/images/hat/hat.png",
+      "stock": 54,
+      "category": "Hat",
+      "price": 25.8
+    }
   ]
 }

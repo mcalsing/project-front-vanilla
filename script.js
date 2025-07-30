@@ -60,7 +60,7 @@ const showFilteredProducts = (inputFilter) => {
 
     filteredProducts = filteredProducts.filter(p => p.name.toLowerCase().includes(inputFilter.toLowerCase()))
     
-    if (filteredProducts.length == 0) card.innerHTML = `<span class="text-xl">Nenhum produto corresponde a pesquisa<span>`
+    if (filteredProducts.length == 0) card.innerHTML = `<span class="text-xl">No products match your search<span>`
 
     filteredProducts.forEach(product => {
       card.innerHTML += `
@@ -158,7 +158,7 @@ const openModal = (id, image, name, price, stock) => {
             <button
               id="modal-btn"
               class="bg-lime-900 rounded-md w-full text-white cursor-pointer px-6 py-3"
-              onclick="addProductToCart(${id}, '${image}', '${name}', ${price})"
+              onclick="addProductToCart(${id}, '${image}', '${name}', ${price}, ${stock})"
             >
               Add to cart
             </button>
@@ -172,7 +172,6 @@ const openModal = (id, image, name, price, stock) => {
     modalBtn.className = "bg-slate-300 rounded-md w-full text-white cursor-pointer px-6 py-3"
     modalBtn.disabled = true;
   }
-
 }
 
 const closeModal = () => {
@@ -200,9 +199,10 @@ const decrementAmount = () => {
   }
 }
 
-const addProductToCart = (id, image, name, price) => {
+const addProductToCart = (id, image, name, price, stock) => {
   const amountInModel = document.getElementById("amount-qtd").textContent;
  
+  // Pega os produtos do session storage
   orders = JSON.parse(sessionStorage.getItem("cart")) || [];
 
   //o objeto existingProduct é referencia do array orders
@@ -216,7 +216,8 @@ const addProductToCart = (id, image, name, price) => {
       image: image,
       name: name,
       price: price,
-      quantity: Number(amountInModel)
+      quantity: Number(amountInModel),
+      stock: stock
     }
     orders.push(order)
   }
@@ -246,6 +247,7 @@ const renderCart = () => {
   let totalPriceProducts = 0;
   checkoutProducts.innerHTML = '';
   
+  // Desabilita o botao de checkout se não houver itens no carrinho
   if (orders.length == 0) {
     checkoutProducts.innerHTML = `<span class="text-xl">Your cart is empty</span>`
     checkoutBtn.className = "cursor-pointer bg-slate-300 text-white w-full mb-8 py-3 px-6 rounded-sm"
@@ -253,7 +255,9 @@ const renderCart = () => {
   } 
   
   orders.forEach(item => {
+    // Subtotal do preço dos itens renderizados
     totalPriceProducts += item.price * item.quantity;
+
     checkoutProducts.innerHTML += `
       <div class="flex items-center gap-10">
         <div class="flex h-25 bg-[#ededde] items-center">
@@ -271,7 +275,9 @@ const renderCart = () => {
     `
   });
 
+
   if (subtotalElem) subtotalElem.textContent = totalPriceProducts.toFixed(1);
+  // Taxa de 5 dolares por item diferente no carrinho
   if (taxElem) taxElem.textContent = (orders.length * 5).toFixed(1);
   if (totalElem && subtotalElem && taxElem) {
     totalElem.innerHTML = (Number(subtotalElem.textContent) + Number(taxElem.textContent)).toFixed(1);
@@ -296,6 +302,21 @@ if (currentURL == "/checkout.html") showCheckoutProducts();
 
 
 const thanks = async () => {
+  
+  const orders = JSON.parse(sessionStorage.getItem('cart')) || [];
+  console.log("entrei no thanks")
+
+  // Atualiza o estoque de cada produto no backend
+  for (const item of orders) {
+    try {
+      await axios.patch(`${API_URL}/${item.id}`, {
+        stock: (item.stock - item.quantity)
+      });
+    } catch (error) {
+      console.error(`Error to update database ${item.name}:`, error);
+    }
+  }
+
   window.location.href = "thanks.html";
   sessionStorage.removeItem('cart');
 }
