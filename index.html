@@ -17,9 +17,9 @@
   <header>
     <div class="flex py-7 px-5 items-center justify-between max-w-[1440px] mx-auto flex-col md:flex-row">
       <nav class="flex items-center">
-        <a class="mr-10" href="/"><img src="/assets/logo.svg" alt="Logo"></a>
-        <ul class="flex gap-5 text-[#727240]">
-          <li onclick="showCategory('T-shirt')" class="cursor-pointer">T-shirts</li>
+        <a class="mr-4 lg:mr-10" href="/"><img src="/assets/logo.svg" alt="Logo"></a>
+        <ul class="flex gap-5 text-[#727240] text-sm lg:text-lg">
+          <li onclick="showCategory('T-shirt')" class="cursor-pointer whitespace-nowrap">T-shirts</li>
           <li onclick="showCategory('Shoes')" class="cursor-pointer">Shoes</li>
           <li onclick="showCategory('Perfume')" class="cursor-pointer">Perfumes</li>
           <li onclick="showCategory('Handbag')" class="cursor-pointer">Handbags</li>
@@ -27,7 +27,7 @@
           <li onclick="showCategory('')" class="cursor-pointer">All</li>
         </ul>
       </nav>
-      <div class="flex items-center gap-10">
+      <div class="flex items-center gap-10 mt-5 md:mt-0 ">
         <input oninput="showFilteredProducts(this.value)" class="border-1 border-[#d1d1ad] rounded-sm py-2 px-3" placeholder="Search for product" type="text">
         <a href="checkout.html" class="relative cursor-pointer">
           <i class="fa-solid fa-cart-shopping text-2xl" ></i>
