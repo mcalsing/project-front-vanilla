@@ -37,12 +37,21 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
 1. **Clone o repositório:**
   ```bash
   git clone https://github.com/mcalsing/project-front-vanilla
+  ```
+
+2. **Acesse a pasta do projeto:**
+  ```bash
   cd projeto-front-vanilla
   ```
 
-2. **Instale o JSON Server:**
+3. **Inicie o VS Code**
   ```bash
-  npm i json-server
+  code .
+  ```
+
+4. **Instale as dependências pelo terminal do VS Code:**
+  ```bash
+  npm install
   ```
 
 3. **Inicie o Backend**
@@ -50,7 +59,7 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
   npm run api
   ```
 
-4. **Abra o arquivo index.html no navegador.**
+4. **Rode a aplicação pelo Live Server**
 
 # Imagens da aplicação
 

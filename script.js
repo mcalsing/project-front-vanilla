@@ -147,11 +147,11 @@ const openModal = (id, image, name, price, stock) => {
             <h1 class="text-xs font-medium mb-2">QUANTITY</h1>
             <div class="flex border-1 border-[#d1d1ad] rounded h-11 justify-between w-41 items-center mb-12 px-4">
               <span class="cursor-pointer" onclick="decrementAmount()">
-                <img src="/assets/minus.svg" alt="" />
+                <img src="./assets/minus.svg" alt="" />
               </span>
               <span id="amount-qtd">${amount}</span>
               <span class="cursor-pointer" onclick="increaseAmount(${maxToAdd})">
-                <img src="/assets/add.svg" alt="" />
+                <img src="./assets/add.svg" alt="" />
               </span>
             </div>
 
@@ -269,7 +269,7 @@ const renderCart = () => {
         </div>
         <span class="text-xl ml-10 ml-auto">$ ${item.price}</span>
         <div onclick="deleteItemFromCart(${item.id})" class="w-8 h-8 bg-[#ededde] rounded-sm cursor-pointer">
-          <img  class="px-2 py-2" src="/assets/close.svg" alt="" />
+          <img  class="px-2 py-2" src="./assets/close.svg" alt="" />
         </div>
       </div>
     `
