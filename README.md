@@ -11,9 +11,9 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
 - Filtro de produtos por categoria
 - Busca de produtos por nome
 - Visualização de detalhes do produto em modal
-- Controle de quantidade e estoque no modal
-- Adição de produtos ao carrinho com persistência em sessionStorage
-- Icone no header que mostra a quantidade de produtos diferentes no carrinho
+- Controle da quantidade e estoque no modal
+- Adição de produtos ao carrinho com persistência no sessionStorage
+- Ícone no header que mostra a quantidade de produtos diferentes no carrinho
 - Visualização e remoção de itens do carrinho
 - Cálculo de subtotal, taxa e total no checkout
 - Finalização da compra com atualização do estoque via API
@@ -41,7 +41,7 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
 
 2. **Acesse a pasta do projeto:**
   ```bash
-  cd projeto-front-vanilla
+  cd project-front-vanilla
   ```
 
 3. **Inicie o VS Code**
@@ -54,12 +54,12 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
   npm install
   ```
 
-3. **Inicie o Backend**
+5. **Inicie o Backend**
   ```bash
   npm run api
   ```
 
-4. **Rode a aplicação pelo Live Server**
+6. **Rode a aplicação pelo Live Server**
 
 # Imagens da aplicação
 
