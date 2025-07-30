@@ -77,12 +77,14 @@ const showFilteredProducts = (inputFilter) => {
 }
 
 const showCategory = (category) => {
-  console.log(category)
-  console.log("teste")
-
   card.innerHTML = '';
+  let filteredCategory;
 
-  filteredCategory = products.filter( item => item.category == category  )
+  if (!category) {
+    filteredCategory = products
+  } else {
+    filteredCategory = products.filter( item => item.category == category  )
+  }
 
   filteredCategory.forEach(product => {
     card.innerHTML += `
@@ -278,7 +280,7 @@ if (currentURL == "/checkout.html") showCheckoutProducts();
 // ----------------------- Thanks page --------------------------
 
 
-const thanks = () => {
+const thanks = async () => {
   window.location.href = "thanks.html";
   sessionStorage.removeItem('cart');
 }
