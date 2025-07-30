@@ -14,6 +14,7 @@ Este projeto é uma loja virtual simples desenvolvida em JavaScript, HTML e CSS,
 - Visualização de detalhes do produto em modal
 - Controle de quantidade e estoque no modal
 - Adição de produtos ao carrinho com persistência em sessionStorage
+- Icone no header que mostra a quantidade de produtos diferentes no carrinho
 - Visualização e remoção de itens do carrinho
 - Cálculo de subtotal, taxa e total no checkout
 - Finalização da compra com atualização do estoque via API

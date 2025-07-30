@@ -51,8 +51,15 @@ window.onload = getProduct;
 const showFilteredProducts = (inputFilter) => {
   card.innerHTML = '';
   try {
-    const filteredProducts = products.filter(p => p.name.toLowerCase().includes(inputFilter.toLowerCase()))
 
+    // Filtro por categoria na barra de pesquisa
+    let filteredProducts = products;
+    if (currentCategory) {
+      filteredProducts = filteredProducts.filter(p => p.category == currentCategory);
+    }
+
+    filteredProducts = filteredProducts.filter(p => p.name.toLowerCase().includes(inputFilter.toLowerCase()))
+    
     if (filteredProducts.length == 0) card.innerHTML = `<span class="text-xl">Nenhum produto corresponde a pesquisa<span>`
 
     filteredProducts.forEach(product => {
@@ -76,7 +83,10 @@ const showFilteredProducts = (inputFilter) => {
   }
 }
 
+let currentCategory = '';
+
 const showCategory = (category) => {
+  currentCategory = category;
   card.innerHTML = '';
   let filteredCategory;
 
