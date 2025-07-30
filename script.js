@@ -259,15 +259,15 @@ const renderCart = () => {
     totalPriceProducts += item.price * item.quantity;
 
     checkoutProducts.innerHTML += `
-      <div class="flex items-center gap-10">
+      <div class="flex items-center gap-5 md:gap-10">
         <div class="flex h-25 bg-[#ededde] items-center">
           <img class="w-20 h-fit flex" src="${item.image}" alt="">
         </div>
         <div class="flex flex-col gap-1">
-          <span class="text-xl">${item.name}</span>
+          <span class="text-lg md:text-xl">${item.name}</span>
           <span class="text-sm text-[#939353]">quantity: ${item.quantity}</span>
         </div>
-        <span class="text-xl ml-10 ml-auto">$ ${item.price}</span>
+        <span class="text-xl ml-10 ml-auto whitespace-nowrap">$ ${item.price}</span>
         <div onclick="deleteItemFromCart(${item.id})" class="w-8 h-8 bg-[#ededde] rounded-sm cursor-pointer">
           <img  class="px-2 py-2" src="./assets/close.svg" alt="" />
         </div>
